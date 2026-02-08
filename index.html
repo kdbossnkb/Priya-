@@ -1,0 +1,130 @@
+# Priya-
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Valentine's Proposal for Priya</title>  
+    <style>  
+        body {  
+            font-family: 'Arial', sans-serif;  
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #ffecd2);  
+            color: #333;  
+            text-align: center;  
+            padding: 50px;  
+            margin: 0;  
+            overflow: hidden;  
+        }  
+        h1 {  
+            font-size: 3em;  
+            color: #e91e63;  
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);  
+        }  
+        .question {  
+            font-size: 2em;  
+            margin-bottom: 40px;  
+        }  
+        .buttons {  
+            position: relative;  
+        }  
+        button {  
+            font-size: 1.5em;  
+            padding: 15px 30px;  
+            margin: 10px;  
+            border: none;  
+            border-radius: 50px;  
+            cursor: pointer;  
+            transition: all 0.3s ease;  
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);  
+        }  
+        #yes {  
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);  
+            color: white;  
+        }  
+        #yes:hover {  
+            transform: scale(1.1);  
+        }  
+        #no {  
+            background: linear-gradient(45deg, #74b9ff, #0984e3);  
+            color: white;  
+            position: absolute;  
+        }  
+        #no:hover {  
+            transform: scale(1.1);  
+        }  
+        .message {  
+            font-size: 2em;  
+            color: #e91e63;  
+            margin-top: 50px;  
+            display: none;  
+        }  
+        .hearts {  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            width: 100%;  
+            height: 100%;  
+            pointer-events: none;  
+            z-index: -1;  
+        }  
+        .heart {  
+            position: absolute;  
+            font-size: 2em;  
+            animation: float 6s infinite linear;  
+        }  
+        @keyframes float {  
+            0% { transform: translateY(100vh) rotate(0deg); }  
+            100% { transform: translateY(-100px) rotate(360deg); }  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="hearts" id="hearts"></div>  
+    <h1>Happy Valentine's Day, Priya! 💖</h1>  
+    <div class="question">Priya, will you be my girlfriend? ❤️</div>  
+    <div class="buttons">  
+        <button id="yes">Yes 😍</button>  
+        <button id="no">No 😏</button>  
+    </div>  
+    <div class="message" id="message">Love you Priya! 💕</div>  <script>  
+    const yesButton = document.getElementById('yes');  
+    const noButton = document.getElementById('no');  
+    const message = document.getElementById('message');  
+    const heartsContainer = document.getElementById('hearts');  
+
+  // Create floating hearts  
+    function createHeart() {  
+        const heart = document.createElement('div');  
+        heart.classList.add('heart');  
+        heart.innerHTML = '❤️';  
+        heart.style.left = Math.random() * 100 + 'vw';  
+        heart.style.animationDelay = Math.random() * 6 + 's';  
+        heartsContainer.appendChild(heart);  
+        setTimeout(() => {  
+            heart.remove();  
+        }, 6000);  
+    }  
+    setInterval(createHeart, 500);  
+
+  // Yes button click  
+    yesButton.addEventListener('click', () => {  
+        message.style.display = 'block';  
+        yesButton.style.display = 'none';  
+        noButton.style.display = 'none';  
+    });  
+
+  // No button hover and click to move  
+    noButton.addEventListener('mouseover', moveNoButton);  
+    noButton.addEventListener('click', moveNoButton);  
+
+  function moveNoButton() {  
+        const maxX = window.innerWidth - noButton.offsetWidth;  
+        const maxY = window.innerHeight - noButton.offsetHeight;  
+        const newX = Math.random() * maxX;  
+        const newY = Math.random() * maxY;  
+        noButton.style.left = newX + 'px';  
+        noButton.style.top = newY + 'px';  
+    }  
+</script>
+
+</body>  
+</html>
